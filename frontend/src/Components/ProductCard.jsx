@@ -9,6 +9,7 @@ const ProductCard = () => {
         <Text>Title</Text>
         <Text>₹ onwords</Text>
         <Text>Free Delivery</Text>
+        
         <Button>Rating</Button>
        </Box>
     </Grid>
