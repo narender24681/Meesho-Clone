@@ -9,8 +9,6 @@ import Home from "./Pages/Home";
 import Navbar2 from "./Components/DropDown";
 
 
-
-
 function App() {
   return (
     <div>
