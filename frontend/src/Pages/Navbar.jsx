@@ -1,13 +1,24 @@
 import React from "react";
 import {
   Box,
-  Image,
+  Button,
+  ButtonGroup,
+  Center,
   Divider,
   Flex,
   HStack,
   Input,
   InputGroup,
   InputLeftElement,
+  Link,
+  Popover,
+  PopoverArrow,
+  PopoverBody,
+  PopoverCloseButton,
+  PopoverContent,
+  PopoverFooter,
+  PopoverHeader,
+  PopoverTrigger,
   Text,
   VStack,
 } from "@chakra-ui/react";
@@ -20,6 +31,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function () {
+  const initialFocusRef = React.useRef();
   return (
     <Box py={3}>
       <Flex justifyContent={"space-around"}>
@@ -68,10 +80,38 @@ export default function () {
             {" "}
             <HStack spacing={5}>
               {" "}
-              <VStack spacing={0}>
-                <FontAwesomeIcon icon={faUser} />
-                <Text>Profile</Text>
-              </VStack>
+              <Popover
+                // initialFocusRef={initialFocusRef}
+                placement="bottom"
+                closeOnBlur={false}>
+                <PopoverTrigger>
+                  <VStack
+                    spacing={0}
+                    _hover={{ cursor: "pointer", color: "pink.500" }}>
+                    <FontAwesomeIcon icon={faUser} />
+                    <Text>Profile</Text>
+                  </VStack>
+                </PopoverTrigger>
+                <PopoverContent>
+                  <PopoverHeader pt={4} fontWeight="semibold" border="0">
+                    Hello Users
+                    <Text>To access Your Meesho Account</Text>
+                  </PopoverHeader>
+                  <PopoverCloseButton />
+                  <PopoverFooter
+                    border="0"
+                    alignItems="center"
+                    justifyContent="space-between"
+                    pb={4}>
+                    <Center>
+                      <Link href="/signup">
+                        <Button colorScheme="pink">Signup</Button>
+                      </Link>
+                      <Divider />
+                    </Center>
+                  </PopoverFooter>
+                </PopoverContent>
+              </Popover>
               <VStack spacing={0}>
                 <FontAwesomeIcon icon={faCartShopping} />
                 <Text>Cart</Text>
@@ -80,7 +120,7 @@ export default function () {
           </Box>
         </HStack>
       </Flex>
-      <Divider py={2} borderColor={"gray.300"} />
+      <Divider mb={-3} py={2} borderColor={"gray.300"} />
     </Box>
   );
 }
