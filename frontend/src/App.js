@@ -11,11 +11,10 @@ function App() {
   return (
     <div>
 
-      {/* <NavBar />
+      <NavBar />
       <AllRoutes />
-   <Footer/> */}
-   <ProductCard/>
-   <SingleProductPage/>
+   <Footer/>
+
 
     </div>
   );
