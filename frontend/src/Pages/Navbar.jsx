@@ -2,7 +2,6 @@ import React from "react";
 import {
   Box,
   Button,
-  ButtonGroup,
   Center,
   Divider,
   Flex,
@@ -12,8 +11,6 @@ import {
   InputLeftElement,
   Link,
   Popover,
-  PopoverArrow,
-  PopoverBody,
   PopoverCloseButton,
   PopoverContent,
   PopoverFooter,
@@ -30,8 +27,7 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 
-export default function () {
-  const initialFocusRef = React.useRef();
+export default function Navbar() {
   return (
     <Box py={3}>
       <Flex justifyContent={"space-around"}>

@@ -1,21 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Button,
   Center,
-  Checkbox,
   Flex,
   FormControl,
   FormLabel,
   Heading,
   Image,
   Input,
-  Link,
   Stack,
   Text,
 } from "@chakra-ui/react";
+import Pintab from "./PinTab";
 
 const Signup = () => {
+  const [number, setnumber] = useState("");
+  const [random, setrandom] = useState("");
+  const [flag, setflag] = useState(false);
+  const [Otp, setOtp] = useState("");
+
+  const handleSubmit = () => {
+    if (number.length === 10) {
+      setflag(true);
+      setnumber("");
+      const randomOtp = Math.ceil(Math.random() * 999999);
+      alert(`OTP-${randomOtp}`);
+      setrandom(randomOtp);
+    } else {
+      alert("Invalid Number");
+    }
+  };
+
   return (
     <Flex
       bg={"#fceaf1"}
@@ -31,33 +47,45 @@ const Signup = () => {
               alt="meesho"
             />
           </Stack>
-          <Stack spacing={10}>
-            <Heading fontSize={"lg"}>Sign Up to view your profile</Heading>
-            <Flex gap={10}>
-              <FormControl id="email" flex={1}>
-                <FormLabel>Country</FormLabel>
-                <Input
-                  type="email"
-                  variant={"flushed"}
-                  value={"+91"}
-                  fontWeight={"bold"}
-                />
-              </FormControl>
-              <FormControl id="email" flex={3}>
-                <FormLabel>Phone Number</FormLabel>
-                <Input type="email" variant={"flushed"} />
-              </FormControl>
-            </Flex>
+          {!flag ? (
             <Stack spacing={10}>
-              <Button
-                colorScheme="pink"
-                _hover={{
-                  bg: "pink.400",
-                }}>
-                Continue
-              </Button>
+              <Heading fontSize={"lg"}>Sign Up to view your profile</Heading>
+              <Flex gap={10}>
+                <FormControl id="email" flex={1}>
+                  <FormLabel>Country</FormLabel>
+                  <Input
+                    type="email"
+                    variant={"flushed"}
+                    value={"+91"}
+                    fontWeight={"bold"}
+                  />
+                </FormControl>
+                <FormControl id="email" flex={3}>
+                  <FormLabel>Phone Number</FormLabel>
+                  <Input
+                    type="number"
+                    value={number}
+                    onChange={(e) => {
+                      setnumber(e.target.value);
+                    }}
+                    variant={"flushed"}
+                  />
+                </FormControl>
+              </Flex>
+              <Stack spacing={10}>
+                <Button
+                  onClick={handleSubmit}
+                  colorScheme="pink"
+                  _hover={{
+                    bg: "pink.400",
+                  }}>
+                  Continue
+                </Button>
+              </Stack>
             </Stack>
-          </Stack>
+          ) : (
+            <Pintab maxChar={1} length={6} setOtp={setOtp} random={random} />
+          )}
           <Center pt={10}>
             <Text fontSize={"10px"} fontWeight={"semibold"}>
               By continuing, you agree to Meesho’s <br />{" "}
