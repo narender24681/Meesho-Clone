@@ -1,5 +1,6 @@
-import './App.css';
-import { AllRoutes } from './Components/AllRoutes';
+import "./App.css";
+import { AllRoutes } from "./Components/AllRoutes";
+import Navbar from "./Pages/Navbar";
 import Footer from './Components/Footer';
 import { NavBar } from './Components/NavBar';
 import SimpleSidebar from './Components/SideBar';
@@ -9,11 +10,9 @@ import Home from './Pages/Home';
 function App() {
   return (
     <div>
-
       <NavBar />
       <AllRoutes />
-   <Footer/>
-
+      <Footer/>
     </div>
   );
 }
