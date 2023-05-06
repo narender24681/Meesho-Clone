@@ -110,6 +110,7 @@ export default function () {
                       <Divider />
                     </Center>
                   </PopoverFooter>
+                  <Button m={2}>My Orders</Button>
                 </PopoverContent>
               </Popover>
               <VStack spacing={0}>
