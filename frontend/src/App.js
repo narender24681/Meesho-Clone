@@ -1,3 +1,4 @@
+
 import "./App.css";
 import { AllRoutes } from "./Components/AllRoutes";
 import Navbar from "./Pages/Navbar";
@@ -9,12 +10,15 @@ import Home from "./Pages/Home";
 import Navbar2 from "./Components/DropDown";
 
 
+
 function App() {
   return (
     <div>
+
       <Navbar/>
      <Navbar2/>
      <AllRoutes/>
+
     </div>
   );
 }
