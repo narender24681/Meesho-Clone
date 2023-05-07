@@ -16,7 +16,10 @@ import Payment from "./Components/Payment";
 function App() {
   return (
     <div>
-    <Payment/>
+   <Navbar/>
+   <Navbar2/>
+   <AllRoutes/>
+   <Footer/>
     </div>
   );
 }
