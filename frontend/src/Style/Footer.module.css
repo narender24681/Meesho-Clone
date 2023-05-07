@@ -26,3 +26,49 @@
 .navbar2 :hover{
     color: #f43397;
 }
+.Payment{
+   
+    
+    margin-left: 260px;
+    margin-top: 40px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 30px;
+border: 1px solid grey;
+    width: 600px;
+}
+.Payment h1{
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: px;
+    margin-top:0px;
+}
+.mx1{
+    display: flex;
+    align-items: center;
+   gap: 15px;
+   margin-top: 10px; 
+}
+
+.mainn{
+    margin-left: 260px;
+    margin-top: 50px;
+    font-size: 18px;
+    font-weight: 500;
+}
+.mx{
+    display: flex;
+    align-items: center;
+   gap: 15px;
+}
+
+.Payment p{
+    margin-top: 20px;
+    color: grey;
+}
+.btnn{
+    background-color: #f43397;
+    color: white;
+    margin-top: 40px;
+    width: 500px;
+    height: 40px;
+}

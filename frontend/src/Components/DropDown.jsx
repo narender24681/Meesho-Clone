@@ -93,7 +93,7 @@ import style from "../Style/Footer.module.css"
          
 //         </div>
 //       ))}
-//     </div>
+//     </div> 
 //   );
 // };
 
