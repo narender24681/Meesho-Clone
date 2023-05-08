@@ -8,6 +8,7 @@ import SingleProductPage from "./Components/SingleProductPage";
 import Home from "./Pages/Home";
 import Navbar2 from "./Components/DropDown";
 import Payment from "./Components/Payment";
+import CartPage from "./Components/CartPage";
 
 
 
@@ -17,7 +18,7 @@ import Payment from "./Components/Payment";
 function App() {
   return (
     <div>
- 
+ <CartPage/>
     </div>
   );
 }
