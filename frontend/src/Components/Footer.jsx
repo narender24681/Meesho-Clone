@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <div className={style.main}>
     <div className={style.footer}>
-      <img src="https://i.imgur.com/8xjcPoZ.png" alt="" />
+      <img src="https://i.imgur.com/cqIMbYJ.png" alt="" />
       <img src="https://i.imgur.com/UxjH3Ly.png" alt="" />
       <img src="https://i.imgur.com/WuUQ5zS.png" alt="" />
       <img src="https://i.imgur.com/bW10Eje.png" alt="" />

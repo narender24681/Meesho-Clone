@@ -8,6 +8,8 @@ import { AdminOrders } from "../Pages/Admin/AdminOrders";
 import { AdminUsers } from "../Pages/Admin/AdminUsers";
 import Signup from "../Pages/Signup";
 import Signin from "../Pages/Signin";
+import CartPage from "./CartPage";
+import Payment from "./Payment";
 
 export const AllRoutes = () => {
   return (
@@ -21,6 +23,8 @@ export const AllRoutes = () => {
       <Route path="/admin/users" element={<AdminUsers />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/signin" element={<Signin />} />
+      <Route path="/payment" element={<Payment/>}></Route>
+      <Route path="/cart" element={<CartPage/>}></Route>
     </Routes>
   );
 };
