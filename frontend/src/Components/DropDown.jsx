@@ -111,7 +111,7 @@ const Navbar = ({ handleHover ,handleMouseLeave}) => {
       <Link to="/jwellery"><button style={{marginLeft:"40px"}} onMouseLeave={handleMouseLeave}onMouseEnter={() => handleHover(6)}>Jewellery & Accessories</button></Link>
       <Link to="/beauty"><button style={{marginLeft:"50px"}} onMouseLeave={handleMouseLeave}onMouseEnter={() => handleHover(7)}>Beauty & Health</button></Link>
       <Link to="/footwear"><button style={{marginLeft:"50px"}} onMouseLeave={handleMouseLeave} onMouseEnter={() => handleHover(8)}>Bags & Footwear</button></Link>
-      <Link to="/electronics"><button onMouseLeave={handleMouseLeave} style={{marginLeft:"50px"}} onMouseEnter={() => handleHover(9)}>Electronics</button></Link>
+      
     </div>
   );
 };
