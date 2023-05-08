@@ -18,7 +18,7 @@ productRouter.post("/create",async(req,res)=>{
 
 //This Code is going to help  Admin for getting all the product that are present in backend database. Url Endpoint Is ->(/products)
 productRouter.get('/',async(req,res)=>{
-    const {category,gender,color} = req.query
+    const {category,gender,color,material,brand} = req.query
     console.log(category,gender,color)
     let query = {}
     if(category){
@@ -29,6 +29,12 @@ productRouter.get('/',async(req,res)=>{
     }
     if(color){
         query.color=color
+    }
+    if(brand){
+        query.brand=brand
+    }
+    if(material){
+        query.material=material
     }
     try{
         const products = await ProductModel.find(query)

@@ -11,7 +11,7 @@ app.use('/user',userRouter)
 // app.use(auth)
 
 
-app.use("/products",auth,productRouter)
+app.use("/products",productRouter)
 app.use("/cart",auth,cartRouter)
 
 
