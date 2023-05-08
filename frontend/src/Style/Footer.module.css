@@ -1,0 +1,28 @@
+.footer{
+    margin: auto;
+    width: 1000px;
+   
+}
+.main{
+    background-color: #f9f9f9;
+}
+.nav2{
+  display: flex;
+}
+.hover:hover{
+    color: #f43397;
+}
+#drop{
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    height: 40px;
+
+  
+}
+.navbar2 {
+   padding: 10px;
+   margin-top: -10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.navbar2 :hover{
+    color: #f43397;
+}
