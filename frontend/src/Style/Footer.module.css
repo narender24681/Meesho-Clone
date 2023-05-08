@@ -26,3 +26,112 @@
 .navbar2 :hover{
     color: #f43397;
 }
+.Payment{
+   
+    
+    margin-left: 260px;
+    margin-top: 40px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    padding: 30px;
+
+    width: 600px;
+
+}
+.xt{
+    padding-bottom: 100px;
+}
+.Payment h1{
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: px;
+    margin-top:0px;
+}
+.mx1{
+    display: flex;
+    align-items: center;
+   gap: 15px;
+   margin-top: 10px; 
+}
+
+.mainn{
+    margin-left: 260px;
+    margin-top: 50px;
+    font-size: 18px;
+    font-weight: 500;
+}
+.mx{
+    display: flex;
+    align-items: center;
+   gap: 15px;
+}
+
+.Payment p{
+    margin-top: 20px;
+    color: grey;
+}
+.btnn{
+    background-color: #f43397;
+    color: white;
+    margin-top: 40px;
+    width: 500px;
+    height: 40px;
+}
+.cart{
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    width: 700px;
+    height: 200px;
+    margin-top: 0px;
+    margin-left: 20px;
+}
+.cart img {
+    width: 80px;
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-left: 70px;
+}
+.detail{
+    margin-top: 30px;
+    margin-left: 20px;
+}
+.detail h1{
+    font-weight: 500;
+}
+.pbtn{
+    display: flex;
+}
+.bigdiv{
+    display: flex;
+    margin-top: 100px;
+    margin-left: 70px;
+
+    padding-bottom: 100px;
+}
+.section{
+    margin-left: 30px;
+}
+.section h1{
+    font-size: 20px;
+    width: 150px;
+    font-weight: 500;
+}
+.section h2{
+    font-size: 16px;
+    font-weight:400;
+}
+.section p{
+    font-size: 20px;
+    width: 150px;
+    margin-top: 20px;
+    font-weight: 500;
+}
+.section img {
+    width: 260px;
+    margin-top: 25px;
+}
+.section button{
+    background-color: #f43397;
+    width: 260px;
+    height: 40px;
+    color: white;
+}
