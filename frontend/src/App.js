@@ -8,13 +8,13 @@ import SingleProductPage from "./Components/SingleProductPage";
 import Home from "./Pages/Home";
 import Navbar2 from "./Components/DropDown";
 
-
 function App() {
   return (
     <div>
-      <Navbar/>
-     <Navbar2/>
-     <AllRoutes/>
+      <Navbar />
+      <Navbar2 />
+      <AllRoutes />
+      <Footer />
     </div>
   );
 }
