@@ -18,6 +18,7 @@ import {
   faMobile,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 export default function () {
   return (
@@ -64,6 +65,7 @@ export default function () {
           <Box>
             <Text fontSize={"25px"}>|</Text>
           </Box>
+          <Link to="/cart">
           <Box>
             {" "}
             <HStack spacing={5}>
@@ -78,6 +80,7 @@ export default function () {
               </VStack>
             </HStack>
           </Box>
+          </Link>
         </HStack>
       </Flex>
       <Divider py={2} borderColor={"gray.300"} />

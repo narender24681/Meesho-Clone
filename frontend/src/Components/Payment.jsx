@@ -16,7 +16,7 @@ const Payment = () => {
     navigate("/")
   }
   return (
-    <div >
+    <div className={style.xt}>
       <h1 className={style.mainn }>Select Delivery Address</h1>
       <div className={style.Payment}>
         <div className={style.mx}> 

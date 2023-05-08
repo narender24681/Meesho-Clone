@@ -13,13 +13,14 @@ import Payment from "./Components/Payment";
 
 
 
+
 function App() {
   return (
     <div>
-   <Navbar/>
+  <Navbar/>
    <Navbar2/>
    <AllRoutes/>
-   <Footer/>
+   <Footer/> 
     </div>
   );
 }
