@@ -29,7 +29,7 @@ userRouter.post("/login",async(req,res)=>{
         if(user){
             bcrypt.compare(password, user.password, async(err, result)=> {
                 if(result){
-                    var token = jwt.sign({ userName: user.userName }, 'quickKart');
+                    var token = jwt.sign({userid:user._id }, 'quickKart');
                     res.status(200).send({"Message":`Hey ${user.firstName} Welcome To Quick Kart`,"token":token})
                 }else{
                     res.status(400).send({"Error":"Please Enter Correct Password"})

@@ -4,7 +4,7 @@ require('dotenv').config()
 const {productRouter} = require("./routes/Product.route")
 const {userRouter} = require("./routes/User.route")
 const {auth} = require('./middlewares/auth.middleware')
-
+const {cartRouter} = require("./routes/Cart.router")
 const app = express()
 app.use(express.json())
 app.use('/user',userRouter)
@@ -12,7 +12,7 @@ app.use('/user',userRouter)
 
 
 app.use("/products",auth,productRouter)
-
+app.use("/cart",auth,cartRouter)
 
 
 //This Is Server Listining Part

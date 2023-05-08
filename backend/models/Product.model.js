@@ -10,8 +10,19 @@ const productSchema = mongoose.Schema(
         price:Number,
         rating:Number,
         description:String,
-        size:String,
-        category:String
+        size:[String],
+        category:String,
+        brand:String,
+        color:String,
+        discount:Number,
+        quantity:Number,
+        gender:String,
+        name:String,
+        material:String,
+        type:String,
+        pattern:String,
+        countryOfOrigin:String
+        
     },{
         versionKey:false
     }

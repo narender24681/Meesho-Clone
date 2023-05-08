@@ -7,7 +7,7 @@ const auth = (req,res,next) =>{
         if(token){
             var decoded = jwt.verify(token.split(' ')[1], 'quickKart');
             if(decoded){
-                req.body.userName = decoded.userName
+                req.body.userid=decoded.userid
                 console.log(decoded)
                 next()
             }else{
