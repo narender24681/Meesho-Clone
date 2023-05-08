@@ -18,6 +18,8 @@ export const AllRoutes = () => {
         <Route path="/admin/add-product" element={<AdminAddProduct/>}/>
         <Route path="/admin/orders" element={<AdminOrders/>}/>
         <Route path="/admin/users" element={<AdminUsers/>}/>
+        <Route path="/signup" element={<Signup />} />
+      <Route path="/signin" element={<Signin />} />
     </Routes>
   );
 };

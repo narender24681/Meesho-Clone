@@ -26,13 +26,25 @@ import {
   faMobile,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
+  const navigate = useNavigate();
   return (
     <Box py={3}>
       <Flex justifyContent={"space-around"}>
         <HStack spacing={10}>
-          <Box>Logo</Box>
+          <Box>
+            <Link href="/" _hover={{ textDecoration: "none" }}>
+              <Text
+                color="pink.500"
+                fontSize={"lg"}
+                fontWeight={"semibold"}
+                fontFamily={"cursive"}>
+                Quick Kart
+              </Text>
+            </Link>
+          </Box>
           <Box>
             <InputGroup>
               <InputLeftElement
@@ -99,14 +111,27 @@ export default function Navbar() {
                     alignItems="center"
                     justifyContent="space-between"
                     pb={4}>
-                    <Center>
+                    <Flex gap={2}>
                       <Link href="/signup">
-                        <Button colorScheme="pink">Signup</Button>
+                        <Button colorScheme="pink">Sign Up</Button>
                       </Link>
-                      <Divider />
-                    </Center>
+                      <Link href="/signin">
+                        <Button colorScheme="pink">Sign In</Button>
+                      </Link>
+                    </Flex>
+                    <Divider pt={2} borderColor={"gray.300"} />
                   </PopoverFooter>
-                  <Button m={2}>My Orders</Button>
+                  <Button m={1} color={"pink.500"}>
+                    My Orders
+                  </Button>
+                  <Button
+                    m={1}
+                    color={"pink.500"}
+                    onClick={() => {
+                      navigate("/admin");
+                    }}>
+                    Admin
+                  </Button>
                 </PopoverContent>
               </Popover>
               <VStack spacing={0}>
