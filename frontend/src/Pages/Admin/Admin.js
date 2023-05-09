@@ -16,10 +16,12 @@ export const Admin = (props) => {
 }
 
 const Div = styled.div`
-  margin-right: 30px;
+  display: flex;
+  /* margin-right: 30px; */
 
   #admin-container {
-    margin-left: 300px;
+    margin: 25px 15px;
+    width: 100%;
     /* border: 1px solid lightgrey; */
   }
 `;

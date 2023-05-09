@@ -36,8 +36,6 @@ export const AdminUsers = () => {
 }
 
 const Div = styled.div`
-    margin-bottom: 40px;
-
     #users {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
