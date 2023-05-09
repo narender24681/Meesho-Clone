@@ -160,8 +160,6 @@ export const AdminOrders = () => {
 }
 
 const Div = styled.div`
-    margin-bottom: 40px;
-
     #orders {
       border-radius: 4px;
       border: 1px solid lightgrey;

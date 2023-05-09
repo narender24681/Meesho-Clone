@@ -7,7 +7,7 @@ const {auth} = require('./middlewares/auth.middleware')
 const {cartRouter} = require("./routes/Cart.router")
 const cors=require("cors")
 const app = express()
-app.use(cors())
+app.use(cors());
 app.use(express.json())
 app.use('/user',userRouter)
 // app.use(auth)

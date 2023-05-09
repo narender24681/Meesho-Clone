@@ -7,8 +7,29 @@ import { FaRegUserCircle } from 'react-icons/fa';
 const users = [
   {
     "image": "",
-    "name": "Admin",
-    "email": "admin@gmail.com",
+    "name": "Narender",
+    "email": "narender@admin.com",
+    "isAdmin": true
+  },
+  {
+    "image": "",
+    "name": "Alok",
+    "email": "alok@admin.com",
+    "isAdmin": true
+  },{
+    "image": "",
+    "name": "Kamran",
+    "email": "kamran@admin.com",
+    "isAdmin": true
+  },{
+    "image": "",
+    "name": "Suraj",
+    "email": "suraj@admin.com",
+    "isAdmin": true
+  },{
+    "image": "",
+    "name": "Sacchitanand",
+    "email": "sacchitanand@admin.com",
     "isAdmin": true
   }
 ]
@@ -36,11 +57,10 @@ export const AdminUsers = () => {
 }
 
 const Div = styled.div`
-    margin-bottom: 40px;
-
     #users {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
       /* border-radius: 4px; */
       /* border: 1px solid lightgrey; */
     }

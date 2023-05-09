@@ -130,8 +130,6 @@ export const AdminDashboard = () => {
 }
 
 const Div = styled.div`
-    margin-bottom: 40px;
-
     #total {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
