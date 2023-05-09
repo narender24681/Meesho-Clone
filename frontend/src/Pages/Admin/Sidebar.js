@@ -49,7 +49,7 @@ const Div = styled.div`
   padding: 25px;
   border: 1px solid lightgrey;
   height: 100vh;
-  position: fixed;
+  /* position: fixed; */
 
   ul {
     font-size: 18px;
