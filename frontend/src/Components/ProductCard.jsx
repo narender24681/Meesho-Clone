@@ -22,10 +22,11 @@ function ProductCard({item}) {
     >
       <Box display="flex" justifyContent="center" >
         <Image
+        display="block"
           src={item.image}
           alt="Product Image"
-          maxW="100%"
-          h="auto"
+          maxW="200px"
+          maxH="200px"
           mb="4"
         />
       </Box>
