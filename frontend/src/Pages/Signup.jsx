@@ -14,13 +14,16 @@ import {
   InputGroup,
   InputRightElement,
   Link,
+  useToast,
   Text,
 } from "@chakra-ui/react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
-
+import { useDispatch, useSelector } from "react-redux";
+import { sign_In_Action } from "../Redux/signupReducer/Action";
+import { useNavigate } from "react-router-dom";
 const obj = {
-  first_name: "",
-  last_name: "",
+  firstName: "",
+  lastName: "",
   email: "",
   password: "",
 };
@@ -28,6 +31,12 @@ const obj = {
 const Signup = () => {
   const [userDetails, setuserDetails] = useState(obj);
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
+  const toast = useToast();
+  const dispatch = useDispatch();
+  const store = useSelector((store) => {
+    return store.SignupReducer;
+  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,8 +44,28 @@ const Signup = () => {
   };
 
   const handleSubmit = (e) => {
+    userDetails.isAdmin = "false";
     e.preventDefault();
-    console.log(userDetails);
+    dispatch(sign_In_Action(userDetails))
+      .then((res) => {
+        if (res.payload === "New User Registerd Successfully") {
+          setTimeout(() => {
+            navigate("/signin", { replaceL: true });
+          }, 1000);
+          return toast({
+            title: `Account Created`,
+            status: "success",
+            isClosable: true,
+          });
+        } else {
+          return toast({
+            title: ` Something Wrong`,
+            status: "error",
+            isClosable: true,
+          });
+        }
+      })
+      .then((err) => console.log(err));
     setuserDetails(obj);
   };
   return (
@@ -63,9 +92,9 @@ const Signup = () => {
                             <FormLabel>First Name</FormLabel>
                             <Input
                               type="text"
-                              value={userDetails.first_name}
+                              value={userDetails.firstName}
                               onChange={handleChange}
-                              name="first_name"
+                              name="firstName"
                             />
                           </FormControl>
                         </Box>
@@ -74,9 +103,9 @@ const Signup = () => {
                             <FormLabel>Last Name</FormLabel>
                             <Input
                               type="text"
-                              value={userDetails.last_name}
+                              value={userDetails.lastName}
                               onChange={handleChange}
-                              name="last_name"
+                              name="lastName"
                             />
                           </FormControl>
                         </Box>

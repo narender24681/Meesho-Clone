@@ -11,8 +11,11 @@ import Signup from "../Pages/Signup";
 import Product from '../Pages/Product';
 import SingleProductPage from "./SingleProductPage"
 import Signin from "../Pages/Signin";
+
 import CartPage from "./CartPage";
 import Payment from "./Payment";
+import PrivateRoute from "./PrivateRoute";
+
 
 
 export const AllRoutes = () => {
@@ -20,7 +23,14 @@ export const AllRoutes = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       {/* <Route path="/signup" element={<Signup />} /> */}
-      <Route path="/admin" element={<AdminDashboard />} />
+      <Route
+        path="/admin"
+        element={
+          <PrivateRoute>
+            <AdminDashboard />
+          </PrivateRoute>
+        }
+      />
       <Route path="/admin/products" element={<AdminProducts />} />
       <Route path="/admin/add-product" element={<AdminAddProduct />} />
       <Route path="/admin/orders" element={<AdminOrders />} />
