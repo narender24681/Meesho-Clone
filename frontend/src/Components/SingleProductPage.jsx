@@ -60,7 +60,7 @@ const cart=JSON.parse(localStorage.getItem('cart'))||[]
   }
  useEffect(()=>{
  
-   dispatch(GetSingleProduct(id)) 
+   dispatch(GetSingleProduct(id))
   
  },[])
 
