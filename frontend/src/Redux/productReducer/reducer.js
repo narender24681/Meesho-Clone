@@ -1,18 +1,21 @@
-import { GET_PRODUCT_FAILURE, GET_PRODUCT_REQUEST, GET_PRODUCT_SUCCESS } from "./actionType"
+import { PRODUCT_FAILURE, PRODUCT_REQUEST, GET_PRODUCT_SUCCESS, SINGLE_PRODUCT_SUCCESS } from "./actionType"
 
 const initialState = {
     isLoading: false,
     isError: false,
     product: [],
+    singleProduct:{}
 }
 
  export const reducer = (state = initialState, { type, payload }) => {
     switch (type) {
-        case GET_PRODUCT_REQUEST:
+        case PRODUCT_REQUEST:
             return { ...state, isLoading: true }
         case GET_PRODUCT_SUCCESS:
             return { ...state, isLoading: false, product:payload }
-        case GET_PRODUCT_FAILURE:
+        case SINGLE_PRODUCT_SUCCESS :
+            return { ...state, isLoading: false, singleProduct:payload }
+        case PRODUCT_FAILURE:
             return { ...state, isLoading: false,isError:true }
         default: return state
     }

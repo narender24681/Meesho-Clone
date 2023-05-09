@@ -5,8 +5,8 @@ const {productRouter} = require("./routes/Product.route")
 const {userRouter} = require("./routes/User.route")
 const {auth} = require('./middlewares/auth.middleware')
 const {cartRouter} = require("./routes/Cart.router")
+const cors=require("cors")
 const app = express()
-const cors = require("cors");
 app.use(cors());
 app.use(express.json())
 app.use('/user',userRouter)

@@ -38,20 +38,18 @@ const Product = () => {
     }
   }
   
-
-
+    let params={}
+  category&&(params.category=category)
+  brand&&(params.brand=brand)
+  gender&&(params.gender=gender)
+  material&&(params.brand=brand)
+  color&&(params.color=color)
   useEffect(() => {
-    let params={
 
-  }
-  params.category&&(params.category=category)
-  params.brand&&(params.brand=brand)
-  params.gender&&(params.gender=gender)
-  params.material&&(params.brand=brand)
-  params.color&&(params.color=color)
     setSearchParams(params)
       dispatch(GetProduct(obj))
   }, [category,brand,gender,material,color])
+
 console.log(product)
   return (
     <Flex mt={3} border="1px solid gray" justifyContent={"center"}>
