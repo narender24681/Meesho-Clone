@@ -52,7 +52,7 @@ const Product = () => {
     setSearchParams(params)
       dispatch(GetProduct(obj))
   }, [category,brand,gender,material,color])
-console.log(product)
+
   return (
     <Flex mt={3} border="1px solid gray" justifyContent={"center"}>
     <Box display={{ base: "none", sm: "none", md: "block", lg: "block" }} width="300px" border="1px solid grey">

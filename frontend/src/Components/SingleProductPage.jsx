@@ -3,19 +3,24 @@ import axios from 'axios';
 import React,{useState} from 'react'
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import AddTocart from './AddTocart';
+
+
 
 
 const SingleProductPage = () => {
 const {id}=useParams();
 const {product}=useSelector((store=>store.ProductReducer))
-
+console.log(product)
+//console.log(product)
 const [data]=product.filter((el)=>{
   return el._id==id
 })
 
 
-console.log(data)
+//console.log(data)
  const {
+  
   imagesArr,
   title,
   price,
@@ -34,6 +39,7 @@ console.log(data)
   pattern,
   countryOfOrigin,
  }=data
+ console.log(data)
   const [mainImage, setMainImage] = useState(imagesArr[0]);
 
   const handleImageClick = (img) => {
@@ -68,7 +74,7 @@ console.log(data)
       <Box>
         <Image src={mainImage} alt="" />
         <Flex justifyContent="center" marginTop="1rem">
-          <Button marginRight="1rem" onClick={addToCart}>Add to cart</Button>
+      <AddTocart product={data}/>
           <Button colorScheme="green">Buy Now</Button>
         </Flex>
       </Box>

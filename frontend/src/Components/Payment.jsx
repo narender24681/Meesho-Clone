@@ -1,9 +1,14 @@
 import { Button, Input, useToast } from '@chakra-ui/react'
-import React from 'react'
+import React, { useRef } from 'react'
 import {useNavigate} from "react-router-dom"
 import style from "../Style/Footer.module.css"
+import { useCartConext } from './CartContext'
 const Payment = () => {
+  let {cart,clearCart,total_item, total_price,shipping_fee}=useCartConext()
   let toast=useToast()
+  const myRef = useRef(null)
+
+   const executeScroll = () => myRef.current.scrollIntoView() 
   let navigate=useNavigate()
   let payment=()=>{
     toast({
@@ -17,8 +22,9 @@ const Payment = () => {
   }
   return (
     <div className={style.xt}>
+      <div className={style.Payment} >
       <h1 className={style.mainn }>Select Delivery Address</h1>
-      <div className={style.Payment}>
+      
         <div className={style.mx}> 
         <img src="https://i.imgur.com/n5tKQzS.png" alt="" />
         <h1>Contact Details</h1>
@@ -42,6 +48,15 @@ const Payment = () => {
         </div>
         <Button className={style.btnn} style={{backgroundColor:"#f43397"}} onClick={payment}>Save Address & Continue</Button>
       </div>
+      <div className={style.paymentmoney} >
+        <h1>Price Details : {total_item}</h1>
+        <h2>Total Product Price :{total_price}</h2>
+        <hr />
+        <p>Shipping fee:-{shipping_fee}</p>
+        <p>Order Total:-{ total_price+shipping_fee}</p>
+       
+       
+    </div>
     </div>
   )
 }

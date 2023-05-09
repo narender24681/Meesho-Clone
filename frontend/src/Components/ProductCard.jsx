@@ -34,8 +34,7 @@ function ProductCard({item}) {
        fontSize="l"
        fontWeight="bold"
        color="gray.600"
-       mb="2"
-      
+       mb="2"      
       >
         {item.title.toString().slice(0, 20)}...
       </Text>

@@ -1,38 +1,43 @@
 import React from 'react'
+import { useCartConext } from './CartContext'
+import CartItem from './CartItem'
 import style from "../Style/Footer.module.css"
-import { Button } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 const CartPage = () => {
-    let navigte=useNavigate()
-    let cart=()=>{
-        navigte("/payment")
+    let {cart,clearCart,total_item, total_price,shipping_fee}=useCartConext()
+    console.log(cart)
+    let navigate=useNavigate()
+    let check=()=>{
+navigate("/payment")
+    }
+    if(cart.length===0){
+        return <div className={style.item} >
+           
+            <img src="https://bakestudio.in/assets/images/cart/empty-cart.gif"  />
+        </div>
     }
   return (
-    <div className={style.bigdiv}>
-    <div className={style.cart}>
-      <div>
-        <img src="https://images.meesho.com/images/products/274884627/s698t_512.jpg" alt="" />
-      </div>
-      <div className={style.detail}>
-        <h1>Men's Pure Cotton Printed Half Sleeve Round...</h1>
-        <div className={style.pbtn}>
-        <Button>+</Button>
-        <p>Quantity</p>
-        <Button>-</Button>
+    <div>
+      <div className={style.nb} >
+     {cart.map((el,index)=>{
+        return <div 
+         key={index} >
+           
+            <CartItem {...el}/>
         </div>
-       <h3>price</h3>
-<Button backgroundColor="#f43397" color="white" marginTop="15px">
-    Delete
-</Button>
-      </div>
+     })}
+     
     </div>
     <div className={style.section}>
-        <h1>Price Details</h1>
-        <h2>Total Product Price</h2>
+        <h1>Price Details :       {total_item}</h1>
+        <h2>Total Product Price :{total_price}</h2>
         <hr />
-        <p>Order Total</p>
+        <p>Shipping fee:-{shipping_fee}</p>
+        <p>Order Total:-{ total_price+shipping_fee}</p>
         <img src="https://i.imgur.com/carCkJv.png" alt="" />
-        <button onClick={cart}>Continue</button>
+        <button onClick={check}>Continue Payment</button>
+
+  <button style={{marginTop:"20px"}} onClick={clearCart}>Clear Cart</button>
         <img src="https://i.imgur.com/i8cxwXr.png" alt="" />
     </div>
     </div>

@@ -12,9 +12,11 @@ import Product from '../Pages/Product';
 import SingleProductPage from "./SingleProductPage"
 import Signin from "../Pages/Signin";
 
-import CartPage from "./CartPage";
+
 import Payment from "./Payment";
 import PrivateRoute from "./PrivateRoute";
+import CartPage from "./CartPage";
+import Footer from "./Footer";
 
 
 
@@ -38,10 +40,10 @@ export const AllRoutes = () => {
       <Route path="/signup" element={<Signup />} />
       <Route path="/signin" element={<Signin />} />
       <Route path="/payment" element={<Payment/>}></Route>
-      <Route path="/cart" element={<CartPage/>}></Route>
+    <Route path="/cart" element={<CartPage/>}></Route>
       <Route path="/product" element={<Product/>}/>
         <Route path="/product/:id" element={<SingleProductPage/>}/>
-
+       
     </Routes>
   );
 };
