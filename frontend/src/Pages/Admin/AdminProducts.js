@@ -5,6 +5,7 @@ import { FaEdit } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
 import styled from '@emotion/styled';
 import { useToast } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
 
 const backendUrl = "http://localhost:8080";
 
@@ -29,6 +30,7 @@ const products1 = [
 
 export const AdminProducts = () => {
   const [products, setProducts] = useState(products1);
+  const navigate = useNavigate();
   const toast = useToast()
   
   useEffect(() => {
@@ -45,6 +47,8 @@ export const AdminProducts = () => {
 
   const handleEdit = (id) => {
     console.log("Edit", id);
+
+    navigate(`/admin/edit-product/${id}`)
   }
 
   const handleDelete = (id) => {

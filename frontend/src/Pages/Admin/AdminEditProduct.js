@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Admin } from './Admin';
 import { Heading, Input, Text } from '@chakra-ui/react';
 import styled from '@emotion/styled';
 import { useToast } from '@chakra-ui/react';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const backendUrl = "http://localhost:8080";
 
@@ -27,9 +28,24 @@ const initialProductFormData = {
     "countryOfOrigin": ""
 }
 
-export const AdminAddProduct = () => {
+export const AdminEditProduct = () => {
   const [productForm, setProductForm] = useState(initialProductFormData);
-  const toast = useToast()
+  const {id} = useParams();
+  const toast = useToast();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    fetch(`${backendUrl}/products/${id}`)
+    .then(res => res.json())
+    .then(res => {
+        // console.log(res);
+
+        setProductForm({...res, ["imagesArr"]: res.imagesArr.join(" "), ["size"]: res.size.join(" ")});
+    })
+    .catch(err => {
+        console.log(err);
+    })
+  }, [])
   
   const handleChange = (e) => {
     // console.log(e.target.name, e.target.value);
@@ -43,8 +59,8 @@ export const AdminAddProduct = () => {
     const newProduct = {...productForm, ["imagesArr"]: productForm.imagesArr.split(" "), ["size"]: productForm.size.split(" ")};
     // console.log(newProduct);
 
-    fetch(`${backendUrl}/products/create`, {
-      method: "POST",
+    fetch(`${backendUrl}/products/update/${id}`, {
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
@@ -55,13 +71,13 @@ export const AdminAddProduct = () => {
       console.log(res);
 
       toast({
-        title: 'Product added successfully',
+        title: 'Product updated successfully',
         status: 'success',
         duration: 2000,
         isClosable: true,
       })
 
-      setProductForm(initialProductFormData);
+      navigate("/admin/products");
     })
     .catch(err => {
       console.log(err);
@@ -71,7 +87,7 @@ export const AdminAddProduct = () => {
   return (
     <Div>
       <Admin>
-        <Heading textAlign="center" as="h3" size="lg" marginBottom="20px">Add Product</Heading>
+        <Heading textAlign="center" as="h3" size="lg" marginBottom="20px">Edit Product</Heading>
 
         <form id="checkout-container" onSubmit={handleSubmit} >
           <div className="checkout-hr"></div>
@@ -112,7 +128,7 @@ export const AdminAddProduct = () => {
 
           <div className="checkout-hr"></div>
 
-          <button type="submit" id="checkout-place-order">Add Product</button>
+          <button type="submit" id="checkout-place-order">Edit Product</button>
         </form>
       </Admin>
     </Div>
