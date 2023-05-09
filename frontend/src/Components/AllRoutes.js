@@ -7,7 +7,8 @@ import { AdminAddProduct } from '../Pages/Admin/AdminAddProduct';
 import { AdminOrders } from '../Pages/Admin/AdminOrders';
 import { AdminUsers } from '../Pages/Admin/AdminUsers';
 import Signup from "../Pages/Signup";
-
+import Product from '../Pages/Product';
+import SingleProductPage from "./SingleProductPage"
 export const AllRoutes = () => {
   return (
     <Routes>
@@ -18,6 +19,8 @@ export const AllRoutes = () => {
         <Route path="/admin/add-product" element={<AdminAddProduct/>}/>
         <Route path="/admin/orders" element={<AdminOrders/>}/>
         <Route path="/admin/users" element={<AdminUsers/>}/>
+        <Route path="/product" element={<Product/>}/>
+        <Route path="/product/:id" element={<SingleProductPage/>}/>
     </Routes>
   );
 };
