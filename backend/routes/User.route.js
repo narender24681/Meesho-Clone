@@ -32,11 +32,11 @@ userRouter.post("/login",async(req,res)=>{
                     var token = jwt.sign({userid:user._id }, 'quickKart');
                     res.status(200).send({"Message":`Hey ${user.firstName} Welcome To Quick Kart`,"token":token})
                 }else{
-                    res.status(400).send({"Error":"Please Enter Correct Password"})
+                    res.status(200).send({"Error":"Please Enter Correct Password"})
                 }
             });
         }else{
-            res.status(400).send({"Error":"Please Enter Correct Credential"})
+            res.status(200).send({"Error":"Please Enter Correct Credential"})
         }
     }catch(err){
         res.status(400).send({"error":err.message})
@@ -48,3 +48,4 @@ userRouter.post("/login",async(req,res)=>{
 module.exports={
     userRouter
 }
+//ROuter Page

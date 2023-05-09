@@ -7,8 +7,16 @@ import { AdminAddProduct } from "../Pages/Admin/AdminAddProduct";
 import { AdminOrders } from "../Pages/Admin/AdminOrders";
 import { AdminUsers } from "../Pages/Admin/AdminUsers";
 import Signup from "../Pages/Signup";
+
+import Product from '../Pages/Product';
+import SingleProductPage from "./SingleProductPage"
 import Signin from "../Pages/Signin";
+
+import CartPage from "./CartPage";
+import Payment from "./Payment";
 import PrivateRoute from "./PrivateRoute";
+
+
 
 export const AllRoutes = () => {
   return (
@@ -29,6 +37,11 @@ export const AllRoutes = () => {
       <Route path="/admin/users" element={<AdminUsers />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/signin" element={<Signin />} />
+      <Route path="/payment" element={<Payment/>}></Route>
+      <Route path="/cart" element={<CartPage/>}></Route>
+      <Route path="/product" element={<Product/>}/>
+        <Route path="/product/:id" element={<SingleProductPage/>}/>
+
     </Routes>
   );
 };

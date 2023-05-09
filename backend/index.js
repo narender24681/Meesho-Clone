@@ -11,7 +11,7 @@ app.use('/user',userRouter)
 // app.use(auth)
 
 
-app.use("/products",auth,productRouter)
+app.use("/products",productRouter)
 app.use("/cart",auth,cartRouter)
 
 
@@ -27,3 +27,5 @@ app.listen(port , async()=>{
     }
     console.log(`Server Is Running On Port No ${port}`)
 })
+
+//category - tshirt pant
