@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import {
   IconButton,
   Box,
@@ -19,6 +19,7 @@ import {
   AccordionPanel,
   AccordionIcon,
   VStack,
+  CheckboxGroup,
 } from "@chakra-ui/react";
 import {
   FiHome,
@@ -28,22 +29,16 @@ import {
   FiSettings,
   FiMenu,
 } from "react-icons/fi";
-import { IconType } from "react-icons";
-import { ReactText } from "react";
+import { useSearchParams } from "react-router-dom";
 
-const LinkItems = [
-  { name: "Home", icon: FiHome },
-  { name: "Trending", icon: FiTrendingUp },
-  { name: "Explore", icon: FiCompass },
-  { name: "Favourites", icon: FiStar },
-  { name: "Settings", icon: FiSettings },
-];
 
-export default function SimpleSidebar({ children }) {
+export default function SimpleSidebar({ children ,color,setColor,category,setMaterial,material, setCategory,brand,gender,setGender, setBrand}) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")}>
+    <Box bg={useColorModeValue("gray.100", "gray.900")}>
       <SidebarContent
+      color={color} setColor={setColor} material={material} setMaterial={setMaterial}
+      brand={brand}  setBrand={setBrand} category={category} setCategory={setCategory} gender={gender} setGender={setGender}
         onClose={() => onClose}
         display={{ base: "none", md: "block" }}
       />
@@ -61,21 +56,82 @@ export default function SimpleSidebar({ children }) {
       </Drawer>
       {/* mobilenav */}
       <MobileNav display={{ base: "flex", md: "none" }} onOpen={onOpen} />
-      <Box ml={{ base: 0, md: 60 }} p="4">
+      <Box ml={{ base: 0, md: 60 }} >
         {children}
       </Box>
     </Box>
   );
 }
 
-const SidebarContent = ({ onClose, ...rest }) => {
+const SidebarContent = ({ onClose,category, setCategory,brand, gender,setGender,setBrand,color,setColor,setMaterial,material, ...rest }) => {
+  // const [searchParams, setSearchParams] = useSearchParams()
+  // const initialCategory = searchParams.getAll("category")
+  // const [category, setCategory] = useState(initialCategory || [])
+  // const initialBrand = searchParams.getAll("brand")
+  // const [brand, setBrand] = useState(initialBrand || [])
+  // const initialGender = searchParams.getAll("gender")
+  // const [gender, setGender] = useState(initialGender || [])
+  const handleMaterial=(e)=>{
+    setMaterial(e)
+  }
+  const handleColor=(e)=>{
+    setColor(e)
+  }
+  const handleCategory=(e)=>{
+    setCategory(e)
+  }
+  // const handleChange = (e) => {
+
+  //   let newCategory = [...category]
+  //   const value = e.target.value;
+  //   if (newCategory.includes(value)) {
+  //     newCategory = newCategory.filter((el) => el !== value)
+  //   } else {
+  //     newCategory.push(value);
+  //   }
+  //   setCategory(newCategory)
+
+  // }
+
+ const handleGender=(e)=>{
+   setGender(e) 
+   console.log("data",e)
+ }
+
+
+
+
+  const handleChangeBrand = (e) => {
+
+    // let newBrand = [...brand]
+    // const value = e.target.value;
+    // if (newBrand.includes(value)) {
+    //   newBrand = newBrand.filter((el) => el !== value)
+    // } else {
+    //   newBrand.push(value);
+    // }
+    // setBrand(newBrand)
+    setBrand(e)
+  
+  }
+
+
+  // useEffect(() => {
+  //   let params = {
+  //     category,
+  //     brand,
+  //   }
+
+  //   setSearchParams(params)
+
+  // }, [category, brand])
   return (
     <Box
       bg={useColorModeValue("white", "gray.900")}
       borderRight="1px"
       borderRightColor={useColorModeValue("gray.200", "gray.700")}
       w={{ base: "full", md: 60 }}
-      pos="fixed"
+      
       h="full"
       {...rest}>
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
@@ -96,78 +152,92 @@ const SidebarContent = ({ onClose, ...rest }) => {
           </h1>
           <AccordionPanel pb={4}>
             <VStack>
-              <Checkbox defaultChecked>Boys</Checkbox>
-              <Checkbox defaultChecked>Girls</Checkbox>
-              <Checkbox defaultChecked>Men</Checkbox>
-              <Checkbox defaultChecked>Women</Checkbox>
-            </VStack>
+              <CheckboxGroup
+              defaultValue={gender}
+              value={gender}
+               onChange={handleGender}>
+              <Checkbox value="Kid" >Kids</Checkbox>
+              <Checkbox value="Male" >Men</Checkbox>
+              <Checkbox value="Female">Women</Checkbox>
+            </CheckboxGroup></VStack>
           </AccordionPanel>
         </AccordionItem>
       </Accordion>
       <Accordion allowToggle>
         <AccordionItem>
-          <h2>
+          <h1>
             <AccordionButton>
               <Box as="span" flex="1" fontSize="20px" textAlign="left">
-                Fabric
+                Category
               </Box>
               <AccordionIcon />
             </AccordionButton>
-          </h2>
+          </h1>
           <AccordionPanel pb={4}>
             <VStack>
-              <Checkbox defaultChecked>Acrylic</Checkbox>
-              <Checkbox defaultChecked>Art Silk</Checkbox>
-              <Checkbox defaultChecked>Bamboo</Checkbox>
-              <Checkbox defaultChecked>Chanderi Silk</Checkbox>
-              <Checkbox defaultChecked>Chiffon</Checkbox>
-              <Checkbox defaultChecked>Cotton</Checkbox>
-            </VStack>
+              <CheckboxGroup
+              defaultValue={category}
+              value={category}
+               onChange={handleCategory}>
+              <Checkbox value="tshirt" >T-Shirts</Checkbox>
+              <Checkbox value="jeans" >Jeans</Checkbox>
+              <Checkbox value="troushers">Troushers</Checkbox>
+              <Checkbox value="shirts" >Shirts</Checkbox>
+              <Checkbox value="saree" >Saree</Checkbox>
+              <Checkbox value="pant">Pant</Checkbox>
+            </CheckboxGroup></VStack>
           </AccordionPanel>
         </AccordionItem>
       </Accordion>
       <Accordion allowToggle>
         <AccordionItem>
-          <h2>
+          <h1>
             <AccordionButton>
               <Box as="span" flex="1" fontSize="20px" textAlign="left">
-                Section 1 title
+                Color
               </Box>
               <AccordionIcon />
             </AccordionButton>
-          </h2>
+          </h1>
           <AccordionPanel pb={4}>
             <VStack>
-              <Input type="text" />
-              <Checkbox defaultChecked>Checkbox</Checkbox>
-              <Checkbox defaultChecked>Checkbox</Checkbox>
-              <Checkbox defaultChecked>Checkbox</Checkbox>
-              <Checkbox defaultChecked>Checkbox</Checkbox>
-              <Checkbox defaultChecked>Checkbox</Checkbox>
-              <Checkbox defaultChecked>Checkbox</Checkbox>
-            </VStack>
+              <CheckboxGroup
+              defaultValue={color}
+              value={color}
+               onChange={handleColor}>
+              <Checkbox value="black" >Black</Checkbox>
+              <Checkbox value="red" >Red</Checkbox>
+              <Checkbox value="green">Green</Checkbox>
+              <Checkbox value="pink" >Pink</Checkbox>
+              <Checkbox value="orange" >Orange</Checkbox>
+              <Checkbox value="white">White</Checkbox>
+            </CheckboxGroup></VStack>
           </AccordionPanel>
         </AccordionItem>
       </Accordion>
       <Accordion allowToggle>
         <AccordionItem>
-          <h2>
+          <h1>
             <AccordionButton>
               <Box as="span" flex="1" fontSize="20px" textAlign="left">
-                Section 1 title
+                Material
               </Box>
               <AccordionIcon />
             </AccordionButton>
-          </h2>
+          </h1>
           <AccordionPanel pb={4}>
             <VStack>
-              <Checkbox defaultChecked>Checkbox</Checkbox>
-              <Checkbox defaultChecked>Checkbox</Checkbox>
-              <Checkbox defaultChecked>Checkbox</Checkbox>
-              <Checkbox defaultChecked>Checkbox</Checkbox>
-              <Checkbox defaultChecked>Checkbox</Checkbox>
-              <Checkbox defaultChecked>Checkbox</Checkbox>
-            </VStack>
+              <CheckboxGroup
+              defaultValue={material}
+              value={material}
+               onChange={handleMaterial}>
+              <Checkbox value="cotton" >Cotton</Checkbox>
+              <Checkbox value="silk" >Silk</Checkbox>
+              <Checkbox value="denim">Denim</Checkbox>
+              <Checkbox value="fiber" >Fiber</Checkbox>
+              <Checkbox value="fabric" >Fabric</Checkbox>
+              <Checkbox value="leather">Leather</Checkbox>
+            </CheckboxGroup></VStack>
           </AccordionPanel>
         </AccordionItem>
       </Accordion>
@@ -175,36 +245,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
   );
 };
 
-// const NavItem = ({ icon, children, ...rest }) => {
-//   return (
-//     <Link href="#" style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
-//       <Flex
-//         align="center"
-//         p="4"
-//         mx="4"
-//         borderRadius="lg"
-//         role="group"
-//         cursor="pointer"
-//         _hover={{
-//           bg: 'cyan.400',
-//           color: 'white',
-//         }}
-//         {...rest}>
-//         {icon && (
-//           <Icon
-//             mr="4"
-//             fontSize="16"
-//             _groupHover={{
-//               color: 'white',
-//             }}
-//             as={icon}
-//           />
-//         )}
-//         {children}
-//       </Flex>
-//     </Link>
-//   );
-// };
+
 
 const MobileNav = ({ onOpen, ...rest }) => {
   return (
