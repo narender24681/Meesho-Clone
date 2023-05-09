@@ -1,21 +1,21 @@
-import { Box, Button, Flex, Heading, Image, Text } from '@chakra-ui/react'
+import { Alert, Box, Button, Flex, Heading, Image, Text } from '@chakra-ui/react'
 import axios from 'axios';
-import React,{useState} from 'react'
-import { useSelector } from 'react-redux';
+import React,{useEffect, useState} from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { GetSingleProduct } from '../Redux/productReducer/action';
 
 
 const SingleProductPage = () => {
 const {id}=useParams();
-const {product}=useSelector((store=>store.ProductReducer))
+const dispatch=useDispatch()
+const {singleProduct}=useSelector((store=>store.ProductReducer))
+ console.log(singleProduct)
+const cart=JSON.parse(localStorage.getItem('cart'))||[]
 
-const [data]=product.filter((el)=>{
-  return el._id==id
-})
 
-
-console.log(data)
  const {
+  image,
   imagesArr,
   title,
   price,
@@ -33,17 +33,23 @@ console.log(data)
   type,
   pattern,
   countryOfOrigin,
- }=data
-  const [mainImage, setMainImage] = useState(imagesArr[0]);
-
-  const handleImageClick = (img) => {
+ }=singleProduct
+ 
+ const [mainImage, setMainImage] = useState(image);
+ const handleImageClick = (img) => {
+  if (imagesArr && imagesArr.length > 0) {
     setMainImage(img);
-  };
+  }
+};
+
 
   const addToCart = () => {
     let obj={
       title,price,discount
     }
+   let newcart=[...cart,obj] 
+
+    localStorage.setItem('cart',JSON.stringify(newcart))
     axios.post('http://localhost:8080/cart/addtocart', obj)
       .then(res => {
         console.log(res);
@@ -52,21 +58,26 @@ console.log(data)
         console.log(err);
       });
   }
-
+ useEffect(()=>{
+ 
+   dispatch(GetSingleProduct(id)) 
+  
+ },[])
 
 
 
   return (
-    <Flex flexWrap="wrap" justifyContent="center" alignItems="center" key={data._id}>
+
+    <Flex flexWrap="wrap" justifyContent="center" alignItems="center" key={singleProduct._id}>
       <Box width={['100%', '50%']} padding={['1rem', '2rem']}>
       <Flex flexDirection={['column', 'row']}>
       <Box marginBottom={['1rem', 0]} marginRight={['0', '2rem']} w="10%">
-        {imagesArr.map((image, index) => (
-          <Image key={index} src={image} alt="" onClick={() => handleImageClick(image)} />
-        ))}
+         {imagesArr?.map((image, index) => (
+              <Image key={index} src={image} alt="" onClick={() => handleImageClick(image)} />
+            ))}
       </Box>
       <Box>
-        <Image src={mainImage} alt="" />
+        <Image maxH="500px" maxW="500px" src={mainImage} alt="" />
         <Flex justifyContent="center" marginTop="1rem">
           <Button marginRight="1rem" onClick={addToCart}>Add to cart</Button>
           <Button colorScheme="green">Buy Now</Button>
@@ -97,24 +108,26 @@ console.log(data)
             </Text>
           </Flex>
         </Box>
-        <Box marginBottom="1rem">
-          {size.map((el)=>{
-            return (
-               <Heading as="h2" size="md" marginBottom="0.5rem">
-          {el}
-          </Heading>
-            )
-          })}
+        <Box marginBottom="1rem" flexDirection={"row"}  border="1px solid" borderColor="gray.400" p="7" >
+        {size && size.length === 0 && <Alert   status="warning">Please select a size</Alert>}
+              {size && size.map((el,i) => (
+            <Heading key={i} display="inline" as="h2" m="2" size="md" marginBottom="0.5rem">
+              {el}
+       </Heading>
+           ))}
+
          
           
         </Box>
-        <Box>
+        <Box marginBottom="1rem" border="1px solid" borderColor="gray.400" p="7">
           <Heading as="h2" size="md" marginBottom="0.5rem">
             Product Details
           </Heading>
-          <Text fontSize="md">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vel turpis euismod, aliquam dolor eget, fermentum velit. Praesent a elit eget nunc suscipit efficitur. Pellentesque ac malesuada leo, vel rutrum magna. Fusce malesuada, nibh vel viverra lacinia, est ipsum tincidunt justo, sit amet bibendum quam mi eu urna. Etiam molestie justo ut lorem bibendum, eu facilisis arcu.
-          </Text>
+          <Text fontSize="md">{name}</Text>
+          <Text fontSize="md">{material}</Text>
+          <Text fontSize="md">{type}</Text>
+          <Text fontSize="md">{pattern}</Text>
+          <Text fontSize="md">{countryOfOrigin}</Text>
         </Box>
         </Box>
     </Flex>
