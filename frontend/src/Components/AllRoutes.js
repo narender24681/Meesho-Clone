@@ -16,7 +16,7 @@ import Signin from "../Pages/Signin";
 import Payment from "./Payment";
 import PrivateRoute from "./PrivateRoute";
 import CartPage from "./CartPage";
-import Footer from "./Footer";
+
 
 
 

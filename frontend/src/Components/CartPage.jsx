@@ -1,8 +1,9 @@
 import React from 'react'
 import { useCartConext } from './CartContext'
-import CartItem from './CartItem'
+
 import style from "../Style/Footer.module.css"
 import { useNavigate } from 'react-router-dom'
+import CartItem from './Cartitem'
 const CartPage = () => {
     let {cart,clearCart,total_item, total_price,shipping_fee}=useCartConext()
     console.log(cart)
