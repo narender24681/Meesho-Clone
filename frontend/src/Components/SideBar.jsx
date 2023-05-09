@@ -150,16 +150,20 @@ const SidebarContent = ({ onClose,category, setCategory,brand, gender,setGender,
               <AccordionIcon />
             </AccordionButton>
           </h1>
-          <AccordionPanel pb={4}>
-            <VStack>
+          <AccordionPanel pb={4} >
+          <VStack>
               <CheckboxGroup
               defaultValue={gender}
               value={gender}
-               onChange={handleGender}>
-              <Checkbox value="Kid" >Kids</Checkbox>
-              <Checkbox value="Male" >Men</Checkbox>
-              <Checkbox value="Female">Women</Checkbox>
-            </CheckboxGroup></VStack>
+               onChange={handleGender} alignItems={"left"}
+               sx={{ flexDirection: 'column' }} >
+               <VStack alignItems="left">
+            <Checkbox value="Kid">Kids</Checkbox>
+            <Checkbox value="Male">Men</Checkbox>
+            <Checkbox value="Female">Women</Checkbox>
+          </VStack>
+            </CheckboxGroup>
+            </VStack>
           </AccordionPanel>
         </AccordionItem>
       </Accordion>
@@ -179,12 +183,13 @@ const SidebarContent = ({ onClose,category, setCategory,brand, gender,setGender,
               defaultValue={category}
               value={category}
                onChange={handleCategory}>
+                <VStack alignItems="left">
               <Checkbox value="tshirt" >T-Shirts</Checkbox>
               <Checkbox value="jeans" >Jeans</Checkbox>
               <Checkbox value="troushers">Troushers</Checkbox>
               <Checkbox value="shirts" >Shirts</Checkbox>
               <Checkbox value="saree" >Saree</Checkbox>
-              <Checkbox value="pant">Pant</Checkbox>
+              <Checkbox value="pant">Pant</Checkbox></VStack>
             </CheckboxGroup></VStack>
           </AccordionPanel>
         </AccordionItem>
@@ -205,12 +210,13 @@ const SidebarContent = ({ onClose,category, setCategory,brand, gender,setGender,
               defaultValue={color}
               value={color}
                onChange={handleColor}>
+                <VStack alignItems="left">
               <Checkbox value="black" >Black</Checkbox>
               <Checkbox value="red" >Red</Checkbox>
               <Checkbox value="green">Green</Checkbox>
               <Checkbox value="pink" >Pink</Checkbox>
               <Checkbox value="orange" >Orange</Checkbox>
-              <Checkbox value="white">White</Checkbox>
+              <Checkbox value="white">White</Checkbox></VStack>
             </CheckboxGroup></VStack>
           </AccordionPanel>
         </AccordionItem>
@@ -231,12 +237,13 @@ const SidebarContent = ({ onClose,category, setCategory,brand, gender,setGender,
               defaultValue={material}
               value={material}
                onChange={handleMaterial}>
+                <VStack alignItems="left">
               <Checkbox value="cotton" >Cotton</Checkbox>
               <Checkbox value="silk" >Silk</Checkbox>
               <Checkbox value="denim">Denim</Checkbox>
               <Checkbox value="fiber" >Fiber</Checkbox>
               <Checkbox value="fabric" >Fabric</Checkbox>
-              <Checkbox value="leather">Leather</Checkbox>
+              <Checkbox value="leather">Leather</Checkbox></VStack>
             </CheckboxGroup></VStack>
           </AccordionPanel>
         </AccordionItem>
