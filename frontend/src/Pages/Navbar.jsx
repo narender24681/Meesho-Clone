@@ -134,10 +134,12 @@ export default function Navbar() {
                   </Button>
                 </PopoverContent>
               </Popover>
+              <Link to="/cart">
               <VStack spacing={0}>
                 <FontAwesomeIcon icon={faCartShopping} />
                 <Text>Cart</Text>
               </VStack>
+              </Link>
             </HStack>
           </Box>
         </HStack>

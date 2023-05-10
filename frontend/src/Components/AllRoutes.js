@@ -16,6 +16,7 @@ import CartPage from "./CartPage";
 import Payment from "./Payment";
 import PrivateRoute from "./PrivateRoute";
 import { AdminEditProduct } from "../Pages/Admin/AdminEditProduct";
+import Success from "./Success";
 
 
 
@@ -40,10 +41,10 @@ export const AllRoutes = () => {
       <Route path="/signup" element={<Signup />} />
       <Route path="/signin" element={<Signin />} />
       <Route path="/payment" element={<Payment/>}></Route>
-      <Route path="/cart" element={<CartPage/>}></Route>
+      <Route path="/cart" element={<PrivateRoute><CartPage/></PrivateRoute>}></Route>
       <Route path="/product" element={<Product/>}/>
         <Route path="/product/:id" element={<SingleProductPage/>}/>
-
+<Route path="/success" element={<Success/>}></Route>
     </Routes>
   );
 };
