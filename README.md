@@ -1,22 +1,27 @@
 ## Meesho Clone
 Meesho is a Bangalore-based social commerce platform that connects individuals and small businesses with product suppliers to start online businesses. The platform offers tools for inventory management, social media promotion, and payment processing. Meesho aims to empower small business owners and entrepreneurs across India.
 
-<br/>
+<hr/>
 
 ## Technologies Used
+#### Frontend
 - HTML
 - CSS
 - JavaScript
-- ReactJs
+- ReactJS
+- Redux
 - React Router DOM
 - Chakra-UI
+- React Apex Charts
+
+#### Backend
 - NodeJS
 - ExpressJS
 - MongoDB
-- Redux
-- React Apex Charts
+- Mongoose
+- JSON Web Token
 
-<br/>
+<hr/>
 
 ## Features
 - Login and signup functionality
@@ -26,9 +31,11 @@ Meesho is a Bangalore-based social commerce platform that connects individuals a
 - Checkout page
 - Payment page
 - Custom backend where all the data for the frontend will be provided
+- Admin page to add, update, edit & update products
 
-<br/>
+<hr/>
 
+## Some Screenshots Of The Project
 ### Home Page
 <img width="945" alt="home-page" src="https://github.com/narender24681/jumbled-scale-7302/assets/113965731/f28c0c5f-cdc3-43cc-aca7-f54117652492">
 
